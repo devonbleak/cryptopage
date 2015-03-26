@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>AES Crypto</title>
+		<style type="text/css">
+			body { width: 400px; margin: 20px auto; }
+			label { display: block; }
+			div { margin-top: 20px; }
+			div#controls { text-align: center; }
+			div#controls a { margin: 20px 20px; }
+			textarea { width: 400px; height: 75px; }
+		</style>
+		<script type="text/javascript" src="aes.js"></script>
+		<script type="text/javascript">
+function encrypt()
+{
+	var passphrase = document.getElementById('passphrase').value;
+	var plaintext = document.getElementById('plaintext').value;
+	var ciphertext_val = CryptoJS.AES.encrypt(plaintext, passphrase);
+	document.getElementById('ciphertext').value = ciphertext_val;
+}
+
+function decrypt()
+{
+	var passphrase = document.getElementById('passphrase').value;
+	var ciphertext = document.getElementById('ciphertext').value;
+	var plaintext_val = CryptoJS.AES.decrypt(ciphertext, passphrase).toString(CryptoJS.enc.Utf8);
+	document.getElementById('plaintext').value = plaintext_val;
+}
+		</script>
+	</head>
+	<body>
+		<label for="passphrase">Passphrase:</label>
+		<input type="text" id="passphrase">
+		<div id="plaintext_div">
+			<label for="plaintext">Plaintext:</label>
+			<textarea id="plaintext" wrap="soft"></textarea>
+		</div>
+		<div id="controls">
+			<a href="" onclick="decrypt(); return false;">&lt;&lt; Decrypt</a>
+			<a href="" onclick="encrypt(); return false;">Encrypt &gt;&gt;</a>
+		</div>
+		<div id="ciphertext_div">
+			<label for="ciphertext">Ciphertext:</label>
+			<textarea id="ciphertext" wrap="soft"></textarea>
+		</div>
+	</body>
+</html>
