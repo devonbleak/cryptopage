@@ -1,2 +1,4 @@
 # cryptopage
-basic AES encrypt/decrypt form in JS
+Basic AES encrypt/decrypt form in JS
+
+Load index.html in a browser.
