@@ -6,7 +6,7 @@
 			body { width: 400px; margin: 20px auto; }
 			label { display: block; }
 			div { margin-top: 20px; }
-			div#controls { text-align: center; }
+			div#controls, div#help { text-align: center; }
 			div#controls a { margin: 20px 20px; }
 			textarea { width: 400px; height: 75px; }
 		</style>
@@ -43,6 +43,9 @@ function decrypt()
 		<div id="ciphertext_div">
 			<label for="ciphertext">Ciphertext:</label>
 			<textarea id="ciphertext" wrap="soft"></textarea>
+		</div>
+		<div id="help">
+			<a href="retrieve_password.mp4">Help!</a>
 		</div>
 	</body>
 </html>
