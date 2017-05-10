@@ -23,7 +23,7 @@ function encrypt()
 function decrypt()
 {
 	var passphrase = document.getElementById('passphrase').value;
-	var ciphertext = document.getElementById('ciphertext').value;
+	var ciphertext = document.getElementById('ciphertext').value.replace(/[\r\n]/g, "");
 	var plaintext_val = CryptoJS.AES.decrypt(ciphertext, passphrase).toString(CryptoJS.enc.Utf8);
 	document.getElementById('plaintext').value = plaintext_val;
 }
@@ -33,7 +33,7 @@ function decrypt()
 		<label for="passphrase">Passphrase (<a href="https://pwgen.foxfilm.com" target="_blank">generator</a>):</label>
 		<input type="text" id="passphrase">
 		<div id="plaintext_div">
-			<label for="plaintext">Plaintext (decrypted stuff):</label>
+			<label for="plaintext">Plaintext (decrypted text):</label>
 			<textarea id="plaintext" wrap="soft"></textarea>
 		</div>
 		<div id="controls">
@@ -41,7 +41,7 @@ function decrypt()
 			<a href="" onclick="encrypt(); return false;">Encrypt &gt;&gt;</a>
 		</div>
 		<div id="ciphertext_div">
-			<label for="ciphertext">Ciphertext (encrypted stuff):</label>
+			<label for="ciphertext">Ciphertext (encrypted text):</label>
 			<textarea id="ciphertext" wrap="soft"></textarea>
 		</div>
 		<div id="help">
