@@ -3,12 +3,12 @@
 	<head>
 		<title>AES Crypto</title>
 		<style type="text/css">
-			body { width: 400px; margin: 20px auto; }
+			body { width: 600px; margin: 20px auto; }
 			label { display: block; }
 			div { margin-top: 20px; }
 			div#controls, div#help { text-align: center; }
 			div#controls a { margin: 20px 20px; }
-			textarea { width: 400px; height: 75px; }
+			textarea { width: 600px; height: 100px; }
 		</style>
 		<script type="text/javascript" src="aes.js"></script>
 		<script type="text/javascript">
@@ -17,7 +17,7 @@ function encrypt()
 	var passphrase = document.getElementById('passphrase').value;
 	var plaintext = document.getElementById('plaintext').value;
 	var ciphertext_val = CryptoJS.AES.encrypt(plaintext, passphrase);
-	document.getElementById('ciphertext').value = ciphertext_val;
+	document.getElementById('ciphertext').value = ciphertext_val.toString().replace(/(.{80})/g, "$1\n");
 }
 
 function decrypt()
